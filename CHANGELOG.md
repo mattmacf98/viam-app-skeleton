@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.17
+
+### Patch Changes
+
+- b008d56: more info in readme
+
 ## 0.0.16
 
 ### Patch Changes
