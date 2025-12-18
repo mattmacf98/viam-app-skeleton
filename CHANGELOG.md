@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.18
+
+### Patch Changes
+
+- ee9f691: update title
+
 ## 0.0.17
 
 ### Patch Changes
