@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.14
+
+### Patch Changes
+
+- 880528b: perm sh
+
 ## 0.0.13
 
 ### Patch Changes
