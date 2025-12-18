@@ -3,6 +3,9 @@
     "visibility": "public",
     "url": "https://github.com/mattmacf98/viam-app-skeleton",
     "description": "Example Viam app skeleton with Svelte and Tailwind",
+    "build": {
+        "build": "make module"
+    },
     "applications": [
       {
         "name": "viam-app-skeleton",
