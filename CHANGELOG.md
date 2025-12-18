@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.7
+
+### Patch Changes
+
+- 2881e64: fix make chain
+
 ## 0.0.6
 
 ### Patch Changes
