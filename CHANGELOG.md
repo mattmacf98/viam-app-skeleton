@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.5
+
+### Patch Changes
+
+- 4a605a9: update deploy
+
 ## 0.0.4
 
 ### Patch Changes
