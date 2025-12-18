@@ -26,4 +26,3 @@ export function createCounterContext(initial = 0): CounterContext {
 export function getCounterContext(): CounterContext {
 	return getContext<CounterContext>(COUNTER_KEY);
 }
-

@@ -10,4 +10,3 @@
 	<span class="text-2xl font-bold">{counter.count}</span>
 	<Button onclick={counter.increment}>+</Button>
 </div>
-
