@@ -1,0 +1,46 @@
+name: Rollback to Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      rollback_tag:
+        description: 'Tag to rollback to (e.g. v1.4.2)'
+        required: true
+        type: string
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Determine rollback commit
+        id: rollback
+        run: |
+          git fetch --tags
+          COMMIT=$(git rev-list -n 1 "${{ inputs.rollback_tag }}")
+          echo "commit=$COMMIT" >> $GITHUB_OUTPUT
+
+      - name: Determine next patch version
+        id: version
+        run: |
+          LATEST_TAG=$(git tag -l 'v*' --sort=-v:refname | head -n 1)
+          echo "Latest tag: $LATEST_TAG"
+
+          VERSION=${LATEST_TAG#v}
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          NEXT_PATCH=$((PATCH + 1))
+
+          NEW_TAG="v$MAJOR.$MINOR.$NEXT_PATCH"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create rollback tag
+        run: |
+          git tag "${{ steps.version.outputs.new_tag }}" \
+            "${{ steps.rollback.outputs.commit }}"
+          git push origin "${{ steps.version.outputs.new_tag }}"
