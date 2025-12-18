@@ -2,7 +2,10 @@ module: dist/index.html meta.json
 	tar czf module.tar.gz meta.json dist
 
 dist/index.html: node_modules
-	pnpm run build
+	npm run build
 
 node_modules: package.json
-	pnpm install
+	npm install
+
+setup-linux:
+	which npm > /dev/null 2>&1 || apt -y install nodejs 
