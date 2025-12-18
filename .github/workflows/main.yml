@@ -54,6 +54,16 @@ jobs:
             echo "version=$VERSION" >> $GITHUB_OUTPUT
           fi
 
+      - name: Viam Build 🚀
+        if: steps.create-tag.outputs.created == 'true'
+        run: |
+          uses: viamrobotics/build-action@v1
+          with:
+            version: ${{ steps.create-tag.outputs.version }}
+            ref: ${{ github.sha }}
+            key-id: ${{ secrets.viam_key_id }}
+            key-value: ${{ secrets.viam_key_value }}
+
       - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1

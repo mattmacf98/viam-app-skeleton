@@ -1,0 +1,13 @@
+{
+    "module_id": "mattmacf:viam-app-skeleton",
+    "visibility": "public",
+    "url": "https://github.com/mattmacf98/viam-app-skeleton",
+    "description": "Example Viam app skeleton with Svelte and Tailwind",
+    "applications": [
+      {
+        "name": "viam-app-skeleton",
+        "type": "single_machine",
+        "entrypoint": "module/apps/dist/index.html"
+      }
+    ]
+  }
