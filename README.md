@@ -14,6 +14,9 @@ You can fork or clone this skeleton and adapt it to your own Viam app module pro
 
 ## Versioning & Changesets
 
+🎥 **Video Guide:**  
+Watch this [short demo video](https://drive.google.com/file/d/1UXPlINwHQv2ohreFyT3aR_tqNs_8TKPC/view?usp=drive_link) for a walkthrough of versioning, deployment, and rollback workflows in this template.
+
 This skeleton uses [Changesets](https://github.com/changesets/changesets) to manage versioning and package publishing. To manage changes and control semantic version bumps for your package, use the Changesets CLI:
 
 - **Patch, Minor, and Major Bumps:**  
