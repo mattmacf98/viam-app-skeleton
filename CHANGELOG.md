@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.11
+
+### Patch Changes
+
+- eb2161d: fix entry point
+
 ## 0.0.10
 
 ### Patch Changes
