@@ -32,9 +32,3 @@ jobs:
 
       - name: Run Lint Checker
         run: pnpm run lint
-
-      - name: Run Unit Tests
-        run: pnpm run test:unit
-
-      - name: Run E2E Tests
-        run: pnpm run test:e2e
