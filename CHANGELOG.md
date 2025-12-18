@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.16
+
+### Patch Changes
+
+- 6d07552: nicer readme
+
 ## 0.0.15
 
 ### Patch Changes
