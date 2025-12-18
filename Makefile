@@ -8,4 +8,7 @@ node_modules: package.json
 	npm install
 
 setup-linux:
-	which npm > /dev/null 2>&1 || apt -y install nodejs 
+	setup-linux:
+	which npm > /dev/null 2>&1 || \
+	curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+	apt-get install -y nodejs
