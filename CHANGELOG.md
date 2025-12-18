@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.10
+
+### Patch Changes
+
+- 16ae183: fix make
+
 ## 0.0.9
 
 ### Patch Changes
