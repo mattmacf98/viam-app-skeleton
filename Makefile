@@ -1,4 +1,5 @@
 module: dist/index.html meta.json start.sh
+	chmod +x start.sh
 	tar czf module.tar.gz meta.json dist start.sh
 
 dist/index.html: node_modules
