@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.8
+
+### Patch Changes
+
+- 47e301d: add setup npm install
+
 ## 0.0.7
 
 ### Patch Changes
