@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.12
+
+### Patch Changes
+
+- f3bcea0: try set entrypoint
+
 ## 0.0.11
 
 ### Patch Changes
