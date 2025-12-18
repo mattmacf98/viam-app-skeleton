@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.19
+
+### Patch Changes
+
+- f1047a8: simplify go module
+
 ## 0.0.18
 
 ### Patch Changes
