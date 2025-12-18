@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.9
+
+### Patch Changes
+
+- 65aa582: get node v 20+
+
 ## 0.0.8
 
 ### Patch Changes
