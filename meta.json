@@ -16,7 +16,7 @@
       {
         "name": "viam-app-skeleton",
         "type": "single_machine",
-        "entrypoint": "module/apps/dist/index.html"
+        "entrypoint": "dist/index.html"
       }
     ]
   }
