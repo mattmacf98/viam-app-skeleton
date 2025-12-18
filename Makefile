@@ -15,5 +15,5 @@ setup-linux:
 bin:
 	mkdir -p bin
 
-bin/viam-app-skeleton: bin *.go cmd/module/*.go *.mod Makefile dist/index.html
-	go build -o bin/viam-app-skeleton cmd/module/cmd.go
+bin/viam-app-skeleton: bin module.go
+	go build -o bin/viam-app-skeleton module.go
