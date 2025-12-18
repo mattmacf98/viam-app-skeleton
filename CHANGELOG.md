@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.13
+
+### Patch Changes
+
+- 969ed0b: exec entry
+
 ## 0.0.12
 
 ### Patch Changes
