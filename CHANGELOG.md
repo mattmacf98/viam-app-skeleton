@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.15
+
+### Patch Changes
+
+- cb282ae: give up and make a go module
+
 ## 0.0.14
 
 ### Patch Changes
