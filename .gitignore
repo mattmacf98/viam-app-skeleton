@@ -10,6 +10,7 @@ node_modules
 /build
 /dist
 module.tar.gz
+bin
 
 # OS
 .DS_Store
