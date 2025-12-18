@@ -1,0 +1,61 @@
+name: Main
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Install pnpm 🔧
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install and Build 🔧
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Create git tag if version changed
+        id: create-tag
+        run: |
+          git fetch --tags
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="$VERSION"
+
+          echo "Current version: $VERSION"
+          echo "Checking for tag: $TAG"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists. Skipping tag creation."
+            echo "created=false" >> $GITHUB_OUTPUT
+          else
+            git tag "$TAG"
+            git push origin "$TAG"
+            echo "Created tag $TAG"
+            echo "created=true" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release Pull Request
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
