@@ -1,5 +1,17 @@
 # viam-app-skeleton
 
+## 0.0.6
+
+### Patch Changes
+
+- b85dea5: use npm for build in make
+
+## 0.0.5
+
+### Patch Changes
+
+- 4a605a9: update deploy
+
 ## 0.0.4
 
 ### Patch Changes
