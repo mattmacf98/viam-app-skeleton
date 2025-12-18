@@ -45,6 +45,7 @@
 		"vitest": "^4.0.15",
 		"vitest-browser-svelte": "^2.0.1"
 	},
+	"packageManager": "pnpm@10.14.0",
 	"dependencies": {
 		"@changesets/cli": "^2.29.8"
 	}
