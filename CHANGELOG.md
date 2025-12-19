@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.24
+
+### Patch Changes
+
+- a49da98: bump
+
 ## 0.0.23
 
 ### Patch Changes
