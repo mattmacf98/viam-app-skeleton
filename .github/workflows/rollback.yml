@@ -30,9 +30,7 @@ jobs:
         id: version
         run: |
           NEW_TAG="${{ inputs.rollback_tag }}+rollback.$(date +%Y%m%d%H%M%S)"
-          VIAM_BUILD_VERSION="rollback-to-${{ inputs.rollback_tag }}-$(date +%Y%m%d%H%M%S)"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
-          echo "viam_build_version=$VIAM_BUILD_VERSION" >> $GITHUB_OUTPUT
 
       - name: Create rollback tag
         run: |
@@ -43,7 +41,7 @@ jobs:
       - name: Viam Build 🚀
         uses: viamrobotics/build-action@v1
         with:
-          version: ${{ steps.version.outputs.viam_build_version }}
+          version: ${{ steps.version.outputs.new_tag }}
           ref: ${{ steps.rollback.outputs.commit }}
           key-id: ${{ secrets.viam_key_id }}
           key-value: ${{ secrets.viam_key_value }}
