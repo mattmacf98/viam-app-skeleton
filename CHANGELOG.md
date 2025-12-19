@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.22
+
+### Patch Changes
+
+- dfe242e: test bump after rollback
+
 ## 0.0.21
 
 ### Patch Changes
