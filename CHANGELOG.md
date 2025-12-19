@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.23
+
+### Patch Changes
+
+- 2dc9b6a: remove go module hack
+
 ## 0.0.22
 
 ### Patch Changes
