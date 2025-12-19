@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.21
+
+### Patch Changes
+
+- 911a721: better rollback tag
+
 ## 0.0.20
 
 ### Patch Changes
