@@ -29,7 +29,7 @@ jobs:
       - name: Determine next patch version
         id: version
         run: |
-          NEW_TAG="${{ inputs.rollback_tag }}+rollback-$(date +%Y%m%d%H%M%S)"
+          NEW_TAG="${{ inputs.rollback_tag }}+rollback.$(date +%Y%m%d%H%M%S)"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Create rollback tag
