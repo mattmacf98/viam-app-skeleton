@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       rollback_tag:
-        description: 'Tag to rollback to (e.g. v1.4.2)'
+        description: 'Tag to rollback to (e.g. 1.4.2)'
         required: true
         type: string
 
@@ -23,19 +23,15 @@ jobs:
         id: rollback
         run: |
           git fetch --tags
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
           COMMIT=$(git rev-list -n 1 "${{ inputs.rollback_tag }}")
           echo "commit=$COMMIT" >> $GITHUB_OUTPUT
+          echo "package_version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
 
       - name: Determine next patch version
         id: version
         run: |
-          LATEST_TAG=$(git tag --sort=-v:refname | head -n 1)
-          echo "Latest tag: $LATEST_TAG"
-
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST_TAG"
-          NEXT_PATCH=$((PATCH + 1))
-
-          NEW_TAG="$MAJOR.$MINOR.$NEXT_PATCH"
+          NEW_TAG="${{ steps.rollback.outputs.package_version }}-rollback-${{inputs.rollback_tag}}-$(date +%Y%m%d%H%M%S)"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Create rollback tag
