@@ -59,10 +59,6 @@ This allows you to safely roll back deployments without altering your git histor
 
 # TODO
 
-- **Rollback Tag Sync Issue:**  
-  When using the rollback workflow, the new rollback tag (e.g. `1.5.3`) created in git will not match what's in `package.json`, since only the tag and deployment are updated, not the repo files. This requires a manual edit to bump `package.json` (and `CHANGELOG.md`) to match the deployed version, or else future tags may conflict or versioning becomes confusing.  
-  _TODO: Consider writing a script or Github Action to automatically sync `package.json` to the latest deployed tag after a rollback! Open to cleaner solutions._
-
 - **No Automated Test Running (Yet):**  
   CI workflows currently do not run unit or end-to-end tests—only linting and type-checks are performed.  
   _TODO: Set up gh action to properly run with playwright_
