@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.26
+
+### Patch Changes
+
+- 3485b99: bump node 22; use pnpm ci; add build to pr
+
 ## 0.0.25
 
 ### Patch Changes
