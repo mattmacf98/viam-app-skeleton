@@ -21,14 +21,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm ci
 
       - name: Run TypeScript typecheck
         run: pnpm run check
 
       - name: Run Lint Checker
         run: pnpm run lint
+
+      - name: Run Build
+        run: pnpm run build
