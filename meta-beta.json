@@ -1,0 +1,13 @@
+{
+    "module_id": "<YOUR_NAMESPACE>:sanding-history-web-app",
+    "visibility": "public",
+    "url": "https://github.com/viam-labs/sanding-history-web-app",
+    "description": "A web app to monitor sanding",
+    "applications": [
+      {
+        "name": "sanding-monitoring-web-app",
+        "type": "single_machine",
+        "entrypoint": "dist/index.html"
+      }
+    ]
+  }
