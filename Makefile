@@ -4,10 +4,10 @@ module: dist/index.html meta.json
 dist/index.html: node_modules
 	npm run build
 
-node_modules: package.json
-	npm install
+node_modules: package-lock.json
+	npm ci
 
 setup-linux:
 	which npm > /dev/null 2>&1 || \
-	curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+	curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
 	apt-get install -y nodejs

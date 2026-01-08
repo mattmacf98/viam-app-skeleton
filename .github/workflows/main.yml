@@ -25,12 +25,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install and Build 🔧
         run: |
-          pnpm install
+          CI=true pnpm i
           pnpm run build
 
       - name: Create git tag if version changed
