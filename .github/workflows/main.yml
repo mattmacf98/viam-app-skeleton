@@ -30,7 +30,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          pnpm ci
+          CI=true pnpm i
           pnpm run build
 
       - name: Create git tag if version changed

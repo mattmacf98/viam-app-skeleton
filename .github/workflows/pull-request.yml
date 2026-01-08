@@ -25,7 +25,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm ci
+        run: CI=true pnpm i
 
       - name: Run TypeScript typecheck
         run: pnpm run check
