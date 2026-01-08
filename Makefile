@@ -4,8 +4,8 @@ module: dist/index.html meta.json
 dist/index.html: node_modules
 	npm run build
 
-node_modules: package-lock.json
-	npm ci
+node_modules: package.json
+	npm install
 
 setup-linux:
 	which npm > /dev/null 2>&1 || \
