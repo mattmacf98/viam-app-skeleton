@@ -57,6 +57,9 @@ This allows you to safely roll back deployments without altering your git histor
    - Set your unique Viam App ID in `meta.json` and update the `golang` files and `Makefile` accordingly.
    - Reset the version in `package.json` back to `0.0.1`.
 
+4. **Dev Deploys**
+- To deploy the module to a beta environment for production-like testing, update the `module_id` field in `meta-beta.json` to use a module you own, then run `make module-beta`.
+
 # TODO
 
 - **No Automated Test Running (Yet):**  

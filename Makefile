@@ -11,3 +11,6 @@ setup-linux:
 	which npm > /dev/null 2>&1 || \
 	curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
 	apt-get install -y nodejs
+
+make module-beta: dist/index.html meta-beta.json
+	@./etc/module-beta.sh
