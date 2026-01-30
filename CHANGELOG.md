@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.27
+
+### Patch Changes
+
+- 6451206: claude test
+
 ## 0.0.26
 
 ### Patch Changes
