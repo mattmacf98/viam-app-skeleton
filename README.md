@@ -58,6 +58,7 @@ This allows you to safely roll back deployments without altering your git histor
    - Reset the version in `package.json` back to `0.0.1`.
 
 4. **Dev Deploys**
+
 - To deploy the module to a beta environment for production-like testing, update the `module_id` field in `meta-beta.json` to use a module you own, then run `make module-beta`.
 
 # TODO
