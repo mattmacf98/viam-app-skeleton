@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.29
+
+### Patch Changes
+
+- 11ac7c9: Add 3D animated Card component with interactive effects
+
 ## 0.0.28
 
 ### Patch Changes
