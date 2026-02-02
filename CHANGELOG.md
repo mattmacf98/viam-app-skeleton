@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.28
+
+### Patch Changes
+
+- 7fb331a: Add Slider component to main page with bindable value and min/max/step props
+
 ## 0.0.27
 
 ### Patch Changes
