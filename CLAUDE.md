@@ -1,10 +1,12 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with
+code in this repository.
 
 ## Project Overview
 
-This is a SvelteKit-based Viam module skeleton for building deployable web applications. The project uses:
+This is a SvelteKit-based Viam module skeleton for building deployable web
+applications. The project uses:
 
 - **SvelteKit 2** with the static adapter (outputs to `dist/`)
 - **Svelte 5** with runes (`$state`, `$derived`, etc.)
@@ -45,7 +47,8 @@ The app uses SvelteKit's file-based routing:
 
 - `src/routes/+page.svelte` - Main page
 - `src/routes/+layout.svelte` - Root layout
-- `src/routes/+layout.ts` - Layout load function (disables SSR via `export const ssr = false`)
+- `src/routes/+layout.ts` - Layout load function (disables SSR via
+  `export const ssr = false`)
 - `src/lib/` - Reusable components and utilities
 
 ### State Management with Svelte 5 Context
@@ -84,12 +87,16 @@ export function getContext() {
 
 ### Component Library
 
-Components live in `src/lib/components/` and are exported via `src/lib/index.ts`. The library includes reusable UI components like `Button` and `Counter`.
+Components live in `src/lib/components/` and are exported via
+`src/lib/index.ts`. The library includes reusable UI components like `Button`
+and `Counter`.
 
 ### Testing Setup
 
-- **Unit tests**: Files matching `src/**/*.{test,spec}.{js,ts}` run in Node environment
-- **Component tests**: Files matching `src/**/*.svelte.{test,spec}.{js,ts}` run in browser with Playwright
+- **Unit tests**: Files matching `src/**/*.{test,spec}.{js,ts}` run in Node
+  environment
+- **Component tests**: Files matching `src/**/*.svelte.{test,spec}.{js,ts}` run
+  in browser with Playwright
 - Tests require assertions (`expect.requireAssertions: true` in vitest config)
 
 ### Static Site Generation
@@ -122,14 +129,15 @@ This skeleton is designed to be deployed as a Viam application module:
 
 ### Beta Deployment
 
-Update `meta-beta.json` with your own `module_id`, then run `make module-beta` to deploy to a beta environment for testing.
+Update `meta-beta.json` with your own `module_id`, then run `make module-beta`
+to deploy to a beta environment for testing.
 
 ## Version Management with Changesets
 
 Use Changesets to manage semantic versioning:
 
 ```bash
-npx changeset              # Create a new changeset
+npx @changesets/cli              # Create a new changeset
 ```
 
 Follow the prompts to:
@@ -137,7 +145,8 @@ Follow the prompts to:
 1. Select the type of change (patch/minor/major)
 2. Write a description of the change
 
-The CI workflow will automatically create a "Version Package" PR that bumps the version and updates the changelog. Merging this PR triggers deployment.
+The CI workflow will automatically create a "Version Package" PR that bumps the
+version and updates the changelog. Merging this PR triggers deployment.
 
 ## CI/CD Workflows
 
@@ -165,12 +174,14 @@ Runs on pushes to `master`:
 Manual workflow for rolling back to a previous version:
 
 - Input a previous tag (e.g., `1.4.2`)
-- Creates a new incremental tag at the old commit (e.g., `1.5.3` pointing to `1.4.2`'s commit)
+- Creates a new incremental tag at the old commit (e.g., `1.5.3` pointing to
+  `1.4.2`'s commit)
 - Redeploys without reverting git history
 
 ## Important Notes
 
-- The project uses Svelte 5's new runes syntax (`$state`, `$derived`, etc.) instead of legacy stores
+- The project uses Svelte 5's new runes syntax (`$state`, `$derived`, etc.)
+  instead of legacy stores
 - Tailwind CSS 4 is configured via Vite plugin, not `tailwind.config.js`
 - SSR is disabled - this is a pure static site
 - The package manager is `pnpm`, not `npm` or `yarn`
