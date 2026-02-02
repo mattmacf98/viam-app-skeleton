@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is a SvelteKit-based Viam module skeleton for building deployable web applications. The project uses:
+
 - **SvelteKit 2** with the static adapter (outputs to `dist/`)
 - **Svelte 5** with runes (`$state`, `$derived`, etc.)
 - **Tailwind CSS 4** via Vite plugin
@@ -41,6 +42,7 @@ make module-beta          # Deploy to beta environment (requires meta-beta.json 
 ### SvelteKit Structure
 
 The app uses SvelteKit's file-based routing:
+
 - `src/routes/+page.svelte` - Main page
 - `src/routes/+layout.svelte` - Root layout
 - `src/routes/+layout.ts` - Layout load function (disables SSR via `export const ssr = false`)
@@ -49,28 +51,34 @@ The app uses SvelteKit's file-based routing:
 ### State Management with Svelte 5 Context
 
 The codebase uses Svelte 5's context API with runes for state management:
+
 - Context is created using `setContext()` with a Symbol key
 - State is managed using `$state()` runes
 - Contexts are retrieved with `getContext()`
 
 Example pattern (see `src/lib/context/counter.svelte.ts`):
+
 ```typescript
 const KEY = Symbol('context-name');
 
 export function createContext(initial) {
-  let state = $state(initial);
+	let state = $state(initial);
 
-  const ctx = {
-    get state() { return state; },
-    method: () => { /* ... */ }
-  };
+	const ctx = {
+		get state() {
+			return state;
+		},
+		method: () => {
+			/* ... */
+		}
+	};
 
-  setContext(KEY, ctx);
-  return ctx;
+	setContext(KEY, ctx);
+	return ctx;
 }
 
 export function getContext() {
-  return getContext<ContextType>(KEY);
+	return getContext<ContextType>(KEY);
 }
 ```
 
@@ -87,6 +95,7 @@ Components live in `src/lib/components/` and are exported via `src/lib/index.ts`
 ### Static Site Generation
 
 The project uses `@sveltejs/adapter-static` to build a fully static site:
+
 - Output directory: `dist/`
 - No server-side rendering (SSR disabled in `+layout.ts`)
 - Suitable for deployment as a Viam application module
@@ -96,12 +105,14 @@ The project uses `@sveltejs/adapter-static` to build a fully static site:
 This skeleton is designed to be deployed as a Viam application module:
 
 ### Module Configuration (`meta.json`)
+
 - `module_id`: Your Viam namespace and module name
 - `build.build`: Points to `make module`
 - `build.path`: Points to `module.tar.gz`
 - `applications[].entrypoint`: Points to `dist/index.html`
 
 ### Deployment Flow
+
 1. Merge PR to `master` branch
 2. CI runs type checks, linting, and builds
 3. Changesets creates a Version Package PR if changesets exist
@@ -110,6 +121,7 @@ This skeleton is designed to be deployed as a Viam application module:
    - Viam Build Action deploys the module using the tag
 
 ### Beta Deployment
+
 Update `meta-beta.json` with your own `module_id`, then run `make module-beta` to deploy to a beta environment for testing.
 
 ## Version Management with Changesets
@@ -121,6 +133,7 @@ npx changeset              # Create a new changeset
 ```
 
 Follow the prompts to:
+
 1. Select the type of change (patch/minor/major)
 2. Write a description of the change
 
@@ -129,7 +142,9 @@ The CI workflow will automatically create a "Version Package" PR that bumps the 
 ## CI/CD Workflows
 
 ### Pull Request Workflow (`.github/workflows/pull-request.yml`)
+
 Runs on PRs to `master`:
+
 - Type checking (`pnpm run check`)
 - Linting (`pnpm run lint`)
 - Build verification
@@ -137,14 +152,18 @@ Runs on PRs to `master`:
 Note: Tests are not yet run in CI (TODO).
 
 ### Main Workflow (`.github/workflows/main.yml`)
+
 Runs on pushes to `master`:
+
 1. Builds the project
 2. Creates git tags when `package.json` version changes
 3. Deploys to Viam using `viamrobotics/build-action@v1`
 4. Creates Version Package PR using `changesets/action@v1`
 
 ### Rollback Workflow (`.github/workflows/rollback.yml`)
+
 Manual workflow for rolling back to a previous version:
+
 - Input a previous tag (e.g., `1.4.2`)
 - Creates a new incremental tag at the old commit (e.g., `1.5.3` pointing to `1.4.2`'s commit)
 - Redeploys without reverting git history
