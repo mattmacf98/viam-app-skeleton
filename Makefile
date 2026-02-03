@@ -1,5 +1,5 @@
-module: dist/index.html meta.json
-	tar czf module.tar.gz meta.json dist
+module: dist/index.html meta.json meta-claude.json
+	tar czf module.tar.gz meta.json dist meta-claude.json
 
 dist/index.html: node_modules
 	npm run build
@@ -14,3 +14,6 @@ setup-linux:
 
 make module-beta: dist/index.html meta-beta.json
 	@./etc/module-beta.sh
+
+make module-claude: dist/index.html meta-claude.json
+	@./etc/module-claude.sh
