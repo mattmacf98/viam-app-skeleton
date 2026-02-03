@@ -42,10 +42,6 @@ jobs:
     needs: pr-checks
     steps:
       - uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
 
       - name: Determine version
         id: version
@@ -58,7 +54,7 @@ jobs:
         uses: viamrobotics/build-action@FEAT-use-meta-input
         with:
           version: ${{ steps.version.outputs.version }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.ref }}
           key-id: ${{ secrets.viam_key_id }}
           key-value: ${{ secrets.viam_key_value }}
           meta-path: meta-claude.json
