@@ -1,5 +1,5 @@
-module: dist/index.html meta.json meta-claude.json
-	tar czf module.tar.gz meta.json dist meta-claude.json
+module: dist/index.html meta.json
+	tar czf module.tar.gz meta.json dist
 
 dist/index.html: node_modules
 	npm run build
