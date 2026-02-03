@@ -1,5 +1,11 @@
 # viam-app-skeleton
 
+## 0.0.30
+
+### Patch Changes
+
+- 14ab500: add modals
+
 ## 0.0.29
 
 ### Patch Changes
