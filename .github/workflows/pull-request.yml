@@ -68,3 +68,9 @@ jobs:
           key-id: ${{ secrets.viam_key_id }}
           key-value: ${{ secrets.viam_key_value }}
           meta-path: meta-claude.json
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Build complete: https://app.viam.com/module/mattmacf/viam-app-skeleton-claude
