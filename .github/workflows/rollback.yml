@@ -44,7 +44,7 @@ jobs:
           git push origin "${{ steps.version.outputs.new_tag }}"
 
       - name: Viam Build 🚀
-        uses: viamrobotics/build-action@v1
+        uses: viamrobotics/build-action@v1.7
         with:
           version: ${{ steps.version.outputs.new_tag }}
           ref: ${{ steps.rollback.outputs.commit }}

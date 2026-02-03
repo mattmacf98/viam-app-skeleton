@@ -61,7 +61,7 @@ jobs:
           echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
 
       - name: Viam Build 🚀
-        uses: viamrobotics/build-action@FEAT-use-meta-input
+        uses: viamrobotics/build-action@v1.7
         with:
           version: ${{ steps.version.outputs.version }}
           ref: ${{ steps.commit.outputs.commit_hash }}
