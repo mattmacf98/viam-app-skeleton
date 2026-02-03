@@ -53,12 +53,18 @@ jobs:
           date=$(date +%Y%m%d%H%M%S)
           VERSION="1.0.0-${date}"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Get commit hash
+        id: commit
+        run: |
+          COMMIT_HASH=$(git rev-parse HEAD)
+          echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
 
       - name: Viam Build 🚀
         uses: viamrobotics/build-action@FEAT-use-meta-input
         with:
           version: ${{ steps.version.outputs.version }}
-          ref: ${{ github.sha }}
+          ref: ${{ steps.commit.outputs.commit_hash }}
           key-id: ${{ secrets.viam_key_id }}
           key-value: ${{ secrets.viam_key_value }}
           meta-path: meta-claude.json
