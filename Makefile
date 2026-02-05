@@ -1,6 +1,11 @@
 module: dist/index.html meta.json
 	tar czf module.tar.gz meta.json dist
 
+module-claude: dist/index.html meta-claude.json
+	cp meta-claude.json meta.json && \
+	tar czf module.tar.gz meta.json dist && \
+	rm meta.json
+
 dist/index.html: node_modules
 	npm run build
 
@@ -12,8 +17,5 @@ setup-linux:
 	curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
 	apt-get install -y nodejs
 
-make module-beta: dist/index.html meta-beta.json
+module-beta: dist/index.html meta-beta.json
 	@./etc/module-beta.sh
-
-make module-claude: dist/index.html meta-claude.json
-	@./etc/module-claude.sh
