@@ -1,16 +1,15 @@
 module: dist/index.html meta.json
 	tar czf module.tar.gz meta.json dist
 
-module-claude: dist/index.html meta-claude.json
-	cp meta-claude.json meta.json && \
-	tar czf module.tar.gz meta.json dist && \
-	rm meta.json
-
 dist/index.html: node_modules
 	npm run build
 
 node_modules: package.json
 	npm install
+
+setup-linux-claude:
+	setup-linux
+	cp meta-claude.json meta.json
 
 setup-linux:
 	which npm > /dev/null 2>&1 || \

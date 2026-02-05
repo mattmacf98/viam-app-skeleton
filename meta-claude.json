@@ -4,8 +4,8 @@
 	"url": "https://github.com/mattmacf98/viam-app-skeleton",
 	"description": "Example Viam app skeleton with Svelte and Tailwind",
 	"build": {
-		"build": "make module-claude",
-		"setup": "make setup-linux",
+		"build": "make module",
+		"setup": "make setup-linux-claude",
 		"arch": ["linux/amd64", "linux/arm64"],
 		"path": "module.tar.gz"
 	},
