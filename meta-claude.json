@@ -5,7 +5,7 @@
 	"description": "Example Viam app skeleton with Svelte and Tailwind",
 	"build": {
 		"build": "make module",
-		"setup": "make setup-linux-claude",
+		"setup": "make setup-linux",
 		"arch": ["linux/amd64", "linux/arm64"],
 		"path": "module.tar.gz"
 	},

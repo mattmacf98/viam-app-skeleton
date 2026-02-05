@@ -7,10 +7,6 @@ dist/index.html: node_modules
 node_modules: package.json
 	npm install
 
-setup-linux-claude:
-	setup-linux
-	cp meta-claude.json meta.json
-
 setup-linux:
 	which npm > /dev/null 2>&1 || \
 	curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
