@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Button, Card, Counter, Modal, Slider } from '$lib';
+	import { Button, Card, Counter, Modal, Slider, Toggle } from '$lib';
 
 	let sliderValue = $state(50);
+	let toggleValue = $state(false);
 	let isBasicModalOpen = $state(false);
 	let isFormModalOpen = $state(false);
 	let isLargeModalOpen = $state(false);
@@ -27,6 +28,16 @@
 			<div class="mt-4 w-full">
 				<Slider bind:value={sliderValue} />
 				<p class="mt-2 text-center text-sm text-gray-600">Value: {sliderValue}</p>
+			</div>
+		</Card>
+
+		<Card
+			title="Toggle Switch"
+			description="An accessible toggle switch component with smooth animations."
+		>
+			<div class="mt-4 flex items-center justify-center gap-4">
+				<Toggle bind:checked={toggleValue} />
+				<p class="text-sm text-gray-600">Status: {toggleValue ? 'On' : 'Off'}</p>
 			</div>
 		</Card>
 
