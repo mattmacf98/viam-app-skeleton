@@ -56,7 +56,7 @@ jobs:
 
       - name: Viam Build 🚀
         if: steps.create-tag.outputs.created == 'true'
-        uses: viamrobotics/build-action@1.7
+        uses: viamrobotics/build-action@v1.7
         with:
           version: ${{ steps.create-tag.outputs.version }}
           ref: ${{ github.sha }}
