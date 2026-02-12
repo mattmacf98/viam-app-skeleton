@@ -1,10 +1,18 @@
 <script lang="ts">
-	import { Button, Card, Counter, Modal, Slider } from '$lib';
+	import { Button, Card, Counter, Dropdown, Modal, Slider } from '$lib';
 
 	let sliderValue = $state(50);
+	let dropdownValue = $state('');
 	let isBasicModalOpen = $state(false);
 	let isFormModalOpen = $state(false);
 	let isLargeModalOpen = $state(false);
+
+	const dropdownOptions = [
+		{ value: 'svelte', label: 'Svelte' },
+		{ value: 'react', label: 'React' },
+		{ value: 'vue', label: 'Vue' },
+		{ value: 'angular', label: 'Angular' }
+	];
 </script>
 
 <div class="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
@@ -27,6 +35,25 @@
 			<div class="mt-4 w-full">
 				<Slider bind:value={sliderValue} />
 				<p class="mt-2 text-center text-sm text-gray-600">Value: {sliderValue}</p>
+			</div>
+		</Card>
+
+		<Card
+			title="Dropdown Menu"
+			description="A customizable dropdown component with smooth animations and keyboard support."
+		>
+			<div class="mt-4 w-full">
+				<Dropdown
+					label="Choose your framework"
+					options={dropdownOptions}
+					bind:value={dropdownValue}
+					placeholder="Select a framework"
+				/>
+				{#if dropdownValue}
+					<p class="mt-2 text-center text-sm text-gray-600">
+						Selected: {dropdownOptions.find((o) => o.value === dropdownValue)?.label}
+					</p>
+				{/if}
 			</div>
 		</Card>
 
