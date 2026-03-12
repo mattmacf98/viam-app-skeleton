@@ -12,7 +12,7 @@ permissions:
 jobs:
   implement:
     if: >-
-      github.repository_owner == 'viam-labs' &&
+      github.repository_owner == 'mattmacf98' &&
       contains(github.event.issue.labels.*.name, 'claude') &&
       contains(github.event.issue.body, '@claude')
     # viamrobotics/claude-ci-workflows@v1.14.0
@@ -21,7 +21,7 @@ jobs:
       issue_number: ${{ github.event.issue.number }}
       title: ${{ github.event.issue.title }}
       body: ${{ github.event.issue.body }}
-      repository_owner: viam-labs
+      repository_owner: mattmacf98
       install_command: make setup-linux && npm ci
       allowed_tools: 'Edit,Read,Write,Glob,Grep,Bash(make *),Bash(npm run build*),Bash(npm run lint*),Bash(npm run test*),Bash(npm run sanity*),Bash(npm run typecheck*),Bash(npm run prettier*),Bash(git config *),Bash(git add *),Bash(git commit *),Bash(git push *),Bash(git status*),Bash(git diff*),Bash(git log*),Bash(git checkout *),Bash(git branch *),Bash(git rev-parse *),Bash(git fetch *)'
       extra_prompt: |
