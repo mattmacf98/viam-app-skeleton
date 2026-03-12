@@ -4,6 +4,10 @@ on:
   issues:
     types: [opened, labeled]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   implement:
     if: >-
