@@ -1,10 +1,20 @@
 <script lang="ts">
-	import { Button, Card, Counter, Modal, Slider } from '$lib';
+	import { Button, Card, Counter, Dropdown, Modal, Slider } from '$lib';
+	import type { DropdownOption } from '$lib';
 
 	let sliderValue = $state(50);
+	let dropdownValue = $state('');
 	let isBasicModalOpen = $state(false);
 	let isFormModalOpen = $state(false);
 	let isLargeModalOpen = $state(false);
+
+	const frameworkOptions: DropdownOption[] = [
+		{ label: 'SvelteKit', value: 'sveltekit' },
+		{ label: 'Next.js', value: 'nextjs' },
+		{ label: 'Nuxt', value: 'nuxt' },
+		{ label: 'Astro', value: 'astro' },
+		{ label: 'Remix', value: 'remix' }
+	];
 </script>
 
 <div class="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
@@ -27,6 +37,22 @@
 			<div class="mt-4 w-full">
 				<Slider bind:value={sliderValue} />
 				<p class="mt-2 text-center text-sm text-gray-600">Value: {sliderValue}</p>
+			</div>
+		</Card>
+
+		<Card
+			title="Dropdown Menu"
+			description="A dropdown component with keyboard navigation and accessible ARIA attributes."
+		>
+			<div class="mt-4 w-full">
+				<Dropdown
+					options={frameworkOptions}
+					bind:value={dropdownValue}
+					placeholder="Pick a framework"
+				/>
+				{#if dropdownValue}
+					<p class="mt-2 text-center text-sm text-gray-600">Selected: {dropdownValue}</p>
+				{/if}
 			</div>
 		</Card>
 
