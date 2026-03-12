@@ -36,7 +36,7 @@ jobs:
       - name: Run Build
         run: pnpm run build
 
-  # Cloud builds do not respect the --module flag right now for building 
+  # Cloud builds do not respect the --module flag right now for building
   # claude-pr-deploy:
   #   if: startsWith(github.head_ref, 'claude/')
   #   runs-on: ubuntu-latest
