@@ -13,8 +13,8 @@ jobs:
   implement:
     if: >-
       github.repository_owner == 'mattmacf98' &&
-      contains(github.event.issue.labels.*.name, 'claude') &&
-      contains(github.event.issue.body, '@claude')
+      (contains(github.event.issue.labels.*.name, 'claude') ||
+      contains(github.event.issue.body, '@claude'))
     # viamrobotics/claude-ci-workflows@v1.14.0
     uses: viamrobotics/claude-ci-workflows/.github/workflows/claude-github-issue.yml@0a9af2603e5218af7448f59536a9f698b35d235f
     with:
