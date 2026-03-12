@@ -23,6 +23,7 @@ jobs:
       body: ${{ github.event.issue.body }}
       repository_owner: mattmacf98
       install_command: npm ci
+      show_full_output: true
       allowed_tools: 'Edit,Read,Write,Glob,Grep,Bash(make *),Bash(npm run build*),Bash(npm run lint*),Bash(npm run test*),Bash(npm run sanity*),Bash(npm run typecheck*),Bash(npm run prettier*),Bash(git config *),Bash(git add *),Bash(git commit *),Bash(git push *),Bash(git status*),Bash(git diff*),Bash(git log*),Bash(git checkout *),Bash(git branch *),Bash(git rev-parse *),Bash(git fetch *)'
       extra_prompt: |
         - Run `npm run sanity` (typecheck + lint) and `npm run test` before committing.
