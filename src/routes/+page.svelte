@@ -1,10 +1,21 @@
 <script lang="ts">
-	import { Button, Card, Counter, Modal, Slider } from '$lib';
+	import { Button, Card, Counter, Dropdown, Modal, Slider } from '$lib';
+	import type { DropdownOption } from '$lib';
 
 	let sliderValue = $state(50);
 	let isBasicModalOpen = $state(false);
 	let isFormModalOpen = $state(false);
 	let isLargeModalOpen = $state(false);
+
+	const fruitOptions: DropdownOption[] = [
+		{ label: 'Apple', value: 'apple' },
+		{ label: 'Banana', value: 'banana' },
+		{ label: 'Cherry', value: 'cherry' },
+		{ label: 'Dragonfruit', value: 'dragonfruit' },
+		{ label: 'Elderberry', value: 'elderberry' }
+	];
+
+	let selectedFruit = $state('');
 </script>
 
 <div class="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
@@ -27,6 +38,18 @@
 			<div class="mt-4 w-full">
 				<Slider bind:value={sliderValue} />
 				<p class="mt-2 text-center text-sm text-gray-600">Value: {sliderValue}</p>
+			</div>
+		</Card>
+
+		<Card
+			title="Dropdown Select"
+			description="A dropdown component with keyboard navigation and click-outside-to-close behavior."
+		>
+			<div class="mt-4 w-full">
+				<Dropdown options={fruitOptions} bind:value={selectedFruit} placeholder="Pick a fruit" />
+				{#if selectedFruit}
+					<p class="mt-2 text-center text-sm text-gray-600">Selected: {selectedFruit}</p>
+				{/if}
 			</div>
 		</Card>
 
